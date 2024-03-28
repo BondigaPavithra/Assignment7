@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class LibraryFine {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        
+        
+        System.out.print("Enter the number of days late: ");
+        int Late_days = s.nextInt();
+        
+
+        double fine = 0;
+        if (Late_days >= 1 && Late_days <= 7) {
+            fine = Late_days * 0.50; 
+        } else if (Late_days >= 8 && Late_days <= 14) {
+            fine = Late_days * 1.00; 
+        } else if (Late_days > 14 && Late_days <= 21) {
+            fine = 5 * (Late_days - 14);
+        } else if (Late_days > 21) {
+            System.out.println("Your membership has been canceled due to returning the book after 21 days.");
+            return; 
+        }
+        
+
+        if (fine > 0) {
+            System.out.println("Your fine amount is: Rs. " + fine);
+        } else {
+            System.out.println("No fine is applicable for returning the book within 7 days.");
+        }
+        
+
+    }
+}
